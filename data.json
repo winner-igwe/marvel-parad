@@ -1,0 +1,117 @@
+{
+  "movies": [
+    {
+      "name": "Dr. Strange in the Multiverse of Madness",
+      "time": "126 min",
+      "date": "6 MAY, 2022",
+      "image": "media/image 2.png",
+      "red": false
+    },
+    {
+      "name": "Thor Love and Thunder",
+      "time": "119 min",
+      "date": "8 JULY, 2022",
+      "image": "media/Rectangle 7.png",
+      "red": false
+    },
+    {
+      "name": "Black Widow",
+      "time": "133 min",
+      "date": "9 JULY, 2021",
+      "image": "media/image 1.png",
+      "red": false
+    },
+    {
+      "name": "Shang-Chi and the Legend of the 10 Rings",
+      "time": "132 min",
+      "date": "3 SEPT, 2021",
+      "image": "media/image 3.png",
+      "red": false
+    },
+    {
+      "name": "Venom 2",
+      "time": "97 min",
+      "date": "15 OCT, 2021",
+      "image": "media/Rectangle 7 (2).png",
+      "red": false
+    },
+    {
+      "name": "Spider-Man: No Way Home",
+      "time": "148 min",
+      "date": "17 DEC, 2021",
+      "image": "media/spider-s.png",
+      "red": false
+    },
+    {
+      "name": "Black Panther Wakanda Forever",
+      "time": "125 min",
+      "date": "11 NOV, 2022",
+      "image": "media/waka.png",
+      "red": false
+    },
+    {
+      "name": "Eternals",
+      "time": "147 min",
+      "date": "5 NOV, 2021",
+      "image": "media/Rectangle 7 (3).png",
+      "red": false
+    },
+    {
+      "name": "The Batman",
+      "time": "127 min",
+      "date": "4 MAR, 2022",
+      "image": "media/batman.jpg",
+      "red": false
+    },
+    {
+      "name": "Aquaman and the Lost Kingdom",
+      "time": "143 min",
+      "date": "16 DEC, 2022",
+      "image": "media/aquaman.jpg",
+      "red": false
+    },
+    {
+      "name": "Avatar: The Way of Water",
+      "time": "156 min",
+      "date": "16 DEC, 2022",
+      "image": "media/avatar.jpg",
+      "red": false
+    },
+    {
+      "name": "Jurassic World: Dominion",
+      "time": "128 min",
+      "date": "10 JUNE, 2022",
+      "image": "media/jurassicWorld.jpg",
+      "red": false
+    },
+    {
+      "name": "The Flash",
+      "time": "130 min",
+      "date": "4 NOV, 2022",
+      "image": "media/flash.jpg",
+      "red": false
+    },
+    {
+      "name": "Sonic the Hedgehog 2",
+      "time": "99 min",
+      "date": "8 APRIL, 2022",
+      "image": "media/sonic-the-hedgehog.jpg",
+      "red": false
+    },
+    {
+    "name": "John Wick: Chapter 4",
+    "time": "132 min",
+    "date": "26 MAY, 2023",
+    "image": "media/john-wick.jpg",
+    "red": false
+    },
+    {
+    "name": "The Matrix Resurrections",
+    "time": "148 min",
+    "date": "22 DEC, 2021",
+    "image": "media/matrix.jpg",
+    "red": false
+    }
+  ]
+  }
+  

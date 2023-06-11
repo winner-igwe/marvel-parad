@@ -1,0 +1,27 @@
+
+//colours
+$primaryRed: #F0141E;
+$darkGrey: #131313;
+$primaryWhite: #ffffff;
+$primaryDark: #000000;
+
+//texts
+$baseText: .4rem;
+$primaryText:.8rem;
+$secondaryText: 1.2rem;
+$tertText: 1.6rem; 
+
+//transtion
+$baseTrans: all .3s linear;
+
+
+
+@mixin flexSpecific($dir,$hor,$ver, $gap) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $hor;
+    align-items: $ver;
+    gap: $gap;
+}
+
+

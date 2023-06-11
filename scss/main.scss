@@ -1,0 +1,1238 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,400&display=swap');
+@import 'variable';
+@import 'resets';
+
+
+
+#navbar_hero {
+    width: 100vw;
+    padding: 1rem 0;
+    min-height: 100vh;
+    position: relative;
+    background-position: 50% 0%;
+    transition: background-image .5s ease-in;
+    &::after {
+        content: "";
+        width: 100%;
+        height: 3%;
+        bottom: 0%;
+        position: absolute;
+        z-index: 50;
+        background-color: #110f0f5e;
+        box-shadow: 0px -20px 100px #3d3d3de1,
+        0px 40px 40px #0f0f0fd9;
+        backdrop-filter: blur(5px);
+
+    }
+}
+
+.navbar {
+    width: 85%;
+    margin: 0 auto;
+    color: $primaryWhite;
+    @include flexSpecific(row,space-between,center,1rem);
+
+
+
+    .logo {
+        img {
+            width: 150px;
+        }
+    }
+
+    .nav_content {
+        @include flexSpecific(row,space-between,center,1.8rem);
+
+        li {
+            display: inline-block;
+            text-transform: capitalize;
+            position: relative;
+            
+            a {
+                color: $primaryWhite;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: .1rem;
+                transform: scaleX(0%);
+                transform-origin: center;
+                background-color: #fff;
+                top: 110%;
+                left: 0;
+                z-index: 10;
+                transition: all .3s linear;
+
+            }
+
+            &:hover::after {
+                transform: scaleX(100%);
+            }
+        }
+
+    }
+
+    .register {
+        background-color: $primaryRed;
+        @include flexSpecific(row,space-between,center,0rem);
+        padding: .7rem 1.2rem;
+        border-radius: .4rem;
+    }
+
+    .burger {
+        width: 47px;
+        height: 40px;
+        position: relative;
+        display: none;
+        flex-direction: column;
+        gap: .5rem;
+        cursor: pointer;
+        z-index: 35;
+        span {
+            width: 37px;
+            height: 3.5px;
+            background-color: #fff;
+        }
+    }
+
+}
+
+.dropdown {
+    width: 0;
+    height: 0;
+    position: fixed;
+    background-color: black;
+    inset: 0;
+    z-index: 30;
+    @include flexSpecific(row,center,center,0rem);
+    opacity: 0;
+
+    .drop_nav_content {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 3;
+        grid-template-rows: 4;
+        grid-template-areas: 
+            ". a . "
+            "b c d"
+            "e f g "
+            "h h h"
+
+        ;
+        padding: 3rem 1.5rem;
+        gap: 2rem;
+        
+
+        li {
+                background-color: $primaryRed;
+                padding: .8rem 2rem;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                cursor: pointer;
+                text-align: center;
+                transition: $baseTrans;
+
+
+                &:hover {
+                    background: $primaryWhite;
+                    a {
+                        color: #000 !important;
+                    }
+                }
+            a {
+                display: inline-block;
+                color: $primaryWhite !important;
+            }
+        }
+        li:nth-child(1) {
+            grid-area: a;
+        }
+        li:nth-child(2) {
+            grid-area: b;
+        }
+        li:nth-child(3) {
+            grid-area: c;
+        }
+        li:nth-child(4) {
+            grid-area: d;
+        }
+        li:nth-child(5) {
+            grid-area: e;
+        }
+        li:nth-child(6) {
+            grid-area: f;
+        }
+        li:nth-child(7) {
+            grid-area: g;
+        }
+        li:nth-child(8) {
+            grid-area: h;
+        }
+    }
+}
+
+.hero {
+    position: relative;
+    @include flexSpecific(column,center,baseline,12rem);
+    justify-items: flex-end;
+    bottom: .5rem;
+    min-height: 85vh;
+    width: 100vw;
+    padding-left: 7.5%;
+    bottom: 0;
+    padding-top: 12%;
+    color: $primaryWhite;
+
+    .watchlist {
+        position: absolute;
+        top: 20px;
+        right: 7.5%;
+        background: linear-gradient(135deg,($primaryWhite)45%,($primaryRed));
+        font-weight: bolder;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        cursor: pointer;
+        text-transform: capitalize;
+        font-size: 1.1rem;
+        &:hover {
+            background: linear-gradient(135deg,($primaryRed)45%,($primaryWhite));
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+    }
+    .mid_hero {
+        @include flexSpecific(column,center,baseline,2rem);
+        .title {
+            font-size: 3.4rem;
+            transition: all .6s ease-in;
+            margin-bottom: -2.5rem;
+            opacity: 0;
+        }
+        p {
+            max-width: 450px;
+            margin-bottom: -2.5rem;
+            opacity: 0;
+        }
+        .btn_span {
+            margin-bottom: -2.5rem;
+            opacity: 0;
+            .btn_1,.btn_2 {
+                padding: .7rem 1.2rem;
+                border-radius: .3rem;
+                border: none;
+                color: $primaryWhite;
+                text-transform: capitalize;
+                letter-spacing: 1px;
+                font-weight: 400;
+                cursor: pointer;
+            }
+            .btn_1 {
+                background-color: $primaryRed;
+                margin-right: .7rem;
+                transition: all .5s linear;
+                &:hover {
+                    box-shadow: 4px 4px 8px rgba(255, 8, 8, 0.753),
+                                -4px -4px 8px rgba(255, 8, 8, 0.753);
+                }
+            }
+            .btn_2 {
+                background-color: transparent;
+                border: 1px solid #fff;
+                transition: all .5s linear;
+                &:hover {
+                    box-shadow: inset 3px 3px 2px rgb(255, 255, 255),
+                                inset -3px -3px 2px rgb(255, 255, 255);
+                }
+            }
+        }
+
+        
+
+    }
+
+    .end_hero {
+        @include flexSpecific(row,space-between,center,0rem);
+        width: 100%;
+        padding-right: 1.5rem;
+        padding-bottom: 3rem;
+
+        .socials_span {
+            img {
+                width: 40px;
+                margin-right: .5rem;
+                
+            }
+            opacity: 0;
+        }
+        .controls {
+            @include flexSpecific(row,space-between,center,1rem);
+            span , img {
+                cursor: pointer;
+            }
+            img {
+                width: 40px;
+            }
+            .num {
+                transition: all .5s ease-in;
+                &.active {
+                    font-size: 2rem;
+                    color: $primaryRed;
+                }
+            }
+            transform: translateX(200%);
+        }
+    }
+    
+
+}
+
+#release_search {
+    width: 100vw;
+    background-color: $primaryDark;
+    padding-bottom: 1rem;
+    
+    .release_search {
+        width: 85%;
+        margin: 0 auto;
+        position: relative;
+        @include flexSpecific(row,space-between,center,0rem);
+        padding: 2rem 0;
+        &::after {
+            content: '';
+            width: 100%;
+            position: absolute;
+            height: 5px;
+            background: linear-gradient(to right,#F0141E,#f0141fb7,#00000000);
+            bottom: 0;
+        }
+
+        .release {
+            text-transform: capitalize;
+            color: $primaryWhite;
+            font-size: $secondaryText;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: -10px;
+                left: 50%;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: $primaryRed
+            }
+        }
+
+        .search {
+            @include flexSpecific(row,space-between,center,0rem);
+            position: relative;
+
+            input {
+                background-color: transparent;
+                border: 2px solid $darkGrey;
+                height: 2.4rem;
+                width: 12.5rem;
+                border-radius: 3px;
+                padding-left: .5rem;
+                color: #fff;
+                outline: none;
+
+                &::placeholder {
+                    color: #acaaaa93;
+                    font-size: 1rem;
+                }
+            }
+            img {
+                width: 25px;
+                position: relative;
+                left: -30px;
+            }
+        }
+        
+    }
+}
+
+#watchlist_con {
+    width: 50vw;
+    height: 100vh;
+    // padding-top: 8%;
+    background-color: $primaryDark;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 200;
+    transition: all .6s linear;
+    overflow-y: scroll;
+    // transform: translateX(-83%);
+    transform: translateX(100%);
+    display: none;
+     &.open {
+        transform: translateX(0%);
+        display: block;
+     }
+    .watch_close {
+        position: sticky;
+        top: 0;
+        padding-right: 5%;
+        padding-top: 3rem;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        background-color: $primaryRed;
+        width: 100%;
+        height: 40px;
+        @include flexSpecific(row,right,end,0rem);
+    }
+    .book {
+        color: #fff;
+        padding: 1.5rem 7.5%;
+    }
+    .watchlist_con {
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        place-items: center;
+        justify-content: center;
+        p {
+            color: #fff;
+            font-size: 2rem;
+            width: 100% !important;
+        }
+
+        .book_item {
+            width: 90%;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+
+            img {
+                width: 100%;
+            }
+            .name_et_book {
+                @include flexSpecific(row,space-between,center,0);
+                margin-top: .8rem;
+
+                .name {
+                    font-size: 1rem;
+                }
+
+                .bk {
+                    fill: $primaryRed;
+                    cursor: pointer;
+                    &.red {
+                        fill: #fff;
+                    }
+
+                }
+            }
+
+        }
+    }
+
+}
+
+
+#movies_span {
+    width: 100vw;
+    background-color: $primaryDark;
+    padding-bottom: 5rem;
+
+    .movies_span_con {
+        width: 85%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        place-items: center;
+        justify-content: center;
+
+
+        .item {
+            width: 90%;
+            color: #fff;
+            margin-bottom: 1.5rem;
+
+            img {
+                width: 100%;
+            }
+            .name_et_fav {
+                display: flex;
+                justify-content: space-between;
+                margin-top: .8rem;
+
+                .svg {
+                    fill: #fff;
+                    cursor: pointer;
+                    &.red {
+                        fill: $primaryRed;
+                    }
+
+                }
+            }
+
+            .time_et_date {
+                display: flex;
+                gap: .5rem;
+                color: #fff;
+                margin-top: .8rem;
+                .length,.date {
+                    color: gray;
+                }
+            }
+        }
+    }
+
+    .moree {
+        color: $primaryRed;
+        position: absolute;
+        right: 0;
+        margin-right: 7.5%;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+#marvel-1 {
+    height: 100vh;
+    width: 100%;
+    
+}
+.first_con {
+    height: 65%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    .image_div {
+        height: 100%;
+        width: 55%;
+        position: relative;
+        z-index: 6;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+    .text_div {
+        position: relative;
+        z-index: 10;
+        width: 45%;
+        height: 100%;
+        background-color: #000;
+        @include flexSpecific(column,center,center,1.5rem);
+        color: #fff;
+        position: relative;
+        padding-left: 2rem;
+        img {
+            width: 145.6px;
+            height: 115.5px;
+            z-index: 10;
+        }
+        .cap_text {
+            font-size: 2.5rem;
+            position: relative;
+            z-index: 10;
+            width: 700px;
+            left: 250px;
+        }
+        a {
+            border: 1.5px solid #fff;
+            padding: .5rem .9rem;
+            color: #fff;
+            border-radius: .7rem;
+        }
+        .small_text {
+            position: relative;
+            z-index: 10;
+            left: 25px;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            width: 35%;
+            height: 130%;
+            transform: rotateZ(-15deg);
+            right: -20%;
+            background-color: #000;
+            z-index: 5 ;
+        }
+    }
+    
+}
+.second_con {
+    position: relative;
+    overflow-x: hidden;
+    .sec_concon {
+        width: 85%;
+        margin: 0 auto;
+        @include flexSpecific(row,space-between,center,1.5rem);
+        position: relative;
+        z-index: 5;
+        padding: 1rem .5rem;
+        background-color: rgb(255, 255, 255);
+        .person {
+            display: flex;
+            width: 22%;
+            flex-direction: column;
+            gap: 1.5rem;
+            cursor: pointer;
+            transition: box-shadow .4s linear;
+            padding-bottom: .5rem;
+            transform: rotateY(90deg);
+            .person-pic {
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+            &:nth-of-type(2n):hover {
+                box-shadow: 8px 4px 7px rgb(173, 173, 173);
+            }
+            &:nth-of-type(2n+1):hover {
+                box-shadow: 8px 4px 7px rgb(173, 173, 173);
+            }
+        }
+        
+    }
+    &::after {
+        content: "";
+        height: 40%;
+        width: 20%;
+        position: absolute;
+        left: -80px;
+        top: -70px;
+        background-color: #000;
+        transform: rotateZ(-25deg);
+    }
+    &::before {
+        content: "";
+        height: 40%;
+        width: 20%;
+        position: absolute;
+        right: -80px;
+        top: -90px;
+        background-color: #000;
+        transform: rotateZ(-25deg);
+    }
+}
+
+
+#marvel-heroes {
+    margin-top: 20rem;
+    display: flex;
+    background: $primaryDark;
+    flex-direction: column;
+    padding: 5rem 0;
+    gap: 4rem;
+
+    .title {
+        font-size: 2rem;
+        color: #fff;
+        text-align: center;
+    }
+    .heroes-con {
+        width: 85%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
+        place-items: center;
+        gap: 1rem;
+        .hero-person {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            color: #fff;
+            .hero-pic {
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+            .role-et-dob {
+                width: 100%;
+                @include flexSpecific(row,space-between,center,0rem);
+                .hero-date {
+                    color: $primaryRed
+                }
+            }
+        }
+    }
+} 
+#trailers {
+    background: $primaryDark;
+    .vid {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100%;
+        background-color:#ffffff; 
+        transform: translate(-50%,-100%);
+        &::before {
+            content: '';
+            position: absolute;
+            border-width: .5rem;
+            
+            border-color: transparent transparent transparent rgba(0, 0, 0, 0.582);
+            border-style: solid;
+            top: 25%;
+            left: 40%;
+        }
+    }
+    p {
+        color: #fff;
+        font-size: .9rem;
+    }
+    .main_trail_con {
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        @include flexSpecific(column,center,center,.2rem);
+        
+        .trailers_text {
+            align-self: baseline;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: light;
+        }
+
+        .trailers_con {
+            @include flexSpecific(column,center,center,2rem);
+            .trail_1_con {
+                transform: scale(0,0);
+                transform-origin: center;
+                color: #fff;
+                @include flexSpecific(column,center,center,.4rem);
+                position: relative;
+
+                img {
+                    width: 70%;
+                    margin-left: 15%;
+                }
+                p {
+                    width: 70%
+                }
+            }
+
+            .other_trail_con {
+                @include flexSpecific(row,space-around,center,1rem);
+                transform: scale(0,0);
+                transform-origin: center;
+                padding-left: 2%;
+                article {
+                    position: relative;
+                    img {
+                        width: 90%;
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+#latest {
+    background-color: $primaryDark;
+    padding-top: 5rem;
+    .latest_con {
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .ini_text {
+            color: #fff;
+            font-size: 1.4rem;
+        }
+        .main_latest_con {
+            @include flexSpecific(col,space-between,center,.5rem);
+            flex-wrap: wrap;
+
+            article {
+                width: 49%;
+                transform: scale(0,0);
+                transform-origin: center;
+                @include flexSpecific(row,flex-start,flex-start,.5rem);
+                color: #fff;
+                p {
+                    font-size: .9rem;
+                }
+            }
+        }
+    }
+}
+
+#insider {
+    background-color: $primaryDark;
+    padding-top: 5rem;
+    overflow-x: hidden;
+    .insider_con {
+        @include flexSpecific(row,center,center,0rem);
+        width: 100%;
+        .con1 {
+            width: 50%;
+            img {
+                width: 90%;
+                display: block;
+                margin: auto;
+            }
+            transform: translateX(-100%);
+        }
+        .con2 {
+            width: 50%;
+            @include flexSpecific(column,center,center,.8rem);
+            color: #fff;
+            transform: translateX(100%);
+            
+            .red {
+                color: $primaryRed;
+                
+            }
+            .watch {
+                font-size: 1.1rem;
+                font-weight: bold;
+            }
+            .reward {
+                font-size: .8rem;
+                font-weight: light;
+            }
+            button {
+                background-color: $primaryRed;
+                padding: .7rem .9rem;
+                color: #fff;
+                border: none;
+                border-radius: .4rem;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+#footer {
+    background-color: #131313;
+    width: 100%;
+    padding: 1.5rem 0;
+    @include flexSpecific(column,center,center,1.3rem);
+    border-radius: .5rem .5rem 0 0;
+
+    .mid_footer {
+        width: 85%;
+        margin: 0 auto;
+        @include flexSpecific(row,space-between,center,0rem);
+        article {
+            width: 16%;
+            @include flexSpecific(column,center,center,.7rem);
+            a {
+                color: #fff;
+                font-size: .9rem;
+                text-align: center;
+            }
+        }
+        .a3 {
+            width: 32%;
+            a {
+                @include flexSpecific(row,space-between,center,1rem);
+                img {
+                    width: 4rem;
+                }
+                div {
+                    @include flexSpecific(column,center,center,.2rem);
+                    .span2 {
+                        color: grey;
+                    }
+                }
+            }
+        }
+        .a4 {
+            color: #fff;
+            div {
+                @include flexSpecific(row,space-between,center,1rem);
+                
+                img {
+                    width: 1.5rem;
+                }
+            }
+        }
+    }
+    .end_footer {
+        @include flexSpecific(row,center,center,0rem);
+        margin-top: 3rem;
+        flex-wrap: wrap;
+        text-align: center;
+        a {
+            width: 20%;
+            color: #858585;
+            font-size: .88rem;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1050px) {
+    #movies_span {
+        .movies_span_con {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    };
+    #trailers {
+        .main_trail_con {
+            width: 90%;
+
+            .trailers_con {
+                @include flexSpecific(row,center,center,.2rem);
+
+                .other_trail_con {
+                    @include flexSpecific(column,space-around,center,1rem);
+                    article {
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #latest {
+   
+        .latest_con {
+            width: 85%;
+        }
+    }
+}
+
+@media screen and (max-width: 950px) {
+    #footer {
+        padding: 1.5rem;
+        .mid_footer {
+            width: 100%;
+        }
+    }
+    #latest {
+        .latest_con {
+            .main_latest_con {
+                article {
+                    img {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+    #marvel-heroes {
+        .heroes-con {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+    .second_con {
+        .sec_concon {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            place-items: center;
+            gap: 2rem;
+            .person {
+                width: 70%;
+            }
+        }
+        &::after {
+            height: 20%;
+            width: 20%;
+
+        }
+        &::before {
+            height: 18%;
+            width: 30%;
+        }
+    }
+    
+    .navbar {
+        .nav_content {
+            display: none;
+        }
+        .register {
+            display: none;
+        }
+        .burger {
+            display: flex;
+        }
+    } 
+    .hero {
+        .watchlist {
+            display: none;
+        }
+    }
+    #marvel-1,#marvel-2 {
+        margin-bottom: 45rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #insider {
+        background-color: $primaryDark;
+        padding-top: 5rem;
+        .insider_con {
+            @include flexSpecific(column,center,center,2rem);
+            padding: 1rem;
+            width: 100%;
+            .con1 {
+                width: 100%;
+                // transform: translateX(0);
+                img {
+                    width: 90%;
+                }
+            }
+            .con2 {
+                width: 100%;
+                // transform: translateX(0) !important;
+
+            }
+        }
+    }
+    #latest {
+        .latest_con {
+            .main_latest_con {
+                flex-direction: column;
+                gap: 3rem;
+                article {
+                    width: 100%;
+                    img {
+                        width: 55%;
+                    }
+                }
+            }
+        }
+    }
+    #marvel-heroes {
+        .heroes-con {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    .first_con {
+        height: 65%;
+        width: 100%;
+        position: relative;
+        display: flex;
+        overflow-x: hidden;
+        .image_div {
+            display: none;
+    
+        }
+
+        .text_div {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            text-align: center;
+            .cap_text {
+                font-size: 1.5rem;
+                width: 70%;
+                left: 0;
+            }
+            .small_text {
+                position: relative;
+                left: 0;
+            }
+            &::after {
+                display: none;
+            }
+        }
+        
+    }
+    .hero {
+        .end_hero {
+            .controls {
+                display: none;
+            }
+        }
+    }
+    
+    #movies_span {
+        .movies_span_con {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    #watchlist_con {
+        width: 70vw;
+        .watchlist_con {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    #trailers {
+        .main_trail_con {
+            width: 90%;
+
+            .trailers_con {
+                @include flexSpecific(column,center,center,.2rem);
+                .trail_1_con {
+                    width: 75%;
+                    .hide {
+                        display: none;
+                    }
+                    .Lp {
+                        width: 100%;
+                    }
+                    img {
+                        width: 100%;
+                        margin-left: 0;
+                    }
+                    p {
+                        align-self: baseline;
+                    }
+                }
+                .other_trail_con {
+                    @include flexSpecific(column,space-around,center,1rem);
+                    article {
+                        width: 100%;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #footer {
+        .mid_footer {
+            width: 85%;
+            margin: 0 auto;
+            @include flexSpecific(column,space-between,center,1.5rem);
+            article {
+                width: 100%;
+                @include flexSpecific(column,center,center,1rem);
+                a {
+                    width: 100%;
+                }
+            }
+            .a3 {
+                width: 100%;
+                a {
+                    @include flexSpecific(column,center,center,1rem);
+                }
+            }
+        }
+        .end_footer {
+            @include flexSpecific(column,center,center,1rem);
+            a {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #marvel-heroes {
+        .heroes-con {
+            grid-template-columns: 1fr;
+            .hero-person {
+                width: 60%;
+            }
+        }
+    }
+
+    .second_con {
+        .sec_concon {
+            display: grid;
+            grid-template-columns: 1fr;
+            place-items: center;
+            gap: 2rem;
+            .person {
+                width: 50%;
+            }
+        }
+        &::after,
+        &::before {
+            display: none;
+
+        }
+    }
+    #marvel-1,#marvel-2 {
+        margin-bottom: 100rem;
+    }
+}
+@media screen and (max-width: 500px) {
+    .first_con {
+        .text_div {
+            .cap_text {
+                font-size: 1rem;
+            }
+            .small_text {
+                font-size: .9rem;
+            }
+        }
+    }
+
+    .dropdown {
+        .drop_nav_content {
+                    @include flexSpecific(column,center,center,1rem);
+            }
+        }    
+    .hero {
+        .mid_hero {
+            h1 {
+                font-size: 37px !important;
+            }
+            p {
+                font-size: 17px !important;
+            }
+        }
+    }
+    #release_search {
+        .release_search {
+            .search {
+                display: none;
+            }
+        }
+    }
+    #movies_span {
+        .movies_span_con {
+            @include flexSpecific(row,space-between,center,1rem);
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            scroll-snap-type: proximity;
+
+            .item {
+                min-width: 100% !important;
+                flex-basis: 1;
+                flex-grow: 1;
+            }
+        }
+    }
+    #watchlist_con {
+        width: 100vw;
+    }
+}
+@media screen and (max-width: 400px) {
+        #marvel-heroes {
+        .heroes-con {
+            .hero-person {
+                width: 80%;
+            }
+        }
+    }
+    #marvel-1,#marvel-2 {
+        margin-bottom: 90rem;
+    }
+    .second_con {
+        .sec_concon {
+            .person {
+                width: 70%;
+            }
+        }
+    }
+}
